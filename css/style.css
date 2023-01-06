@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*reset básico no css*/
+} 
+
+.game-board{
+    width: 100%; /*largura*/
+    height: 500px;/*altura*/
+    border-bottom: 15px solid rgb(35, 160, 35);/*margem do quadrado*/
+    margin: 0 auto; /*centralizei a div*/
+    position: relative; /*comando para respeitar delimitação do nosso quadrado*/
+    overflow: hidden; /*overflow é responsavel apos a imagem sair do quadrado, com o hidden ele faz sumir a imagem apos passar, assim escondeno*/
+    background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.pipe{
+    position: absolute; /*assim nenhuma imagem interfere no comportamento da outra*/
+    bottom: 0; /*para ficar na parte inferior*/
+    width: 80px; /*defini o tamanho do tubo*/
+    /*left: 120px; /*mesma condição do right, mas do lado esquerdo*/
+    animation: pipe-animation 1.5s infinite linear; /*responsavel por fazer a animação rodar, com o tempo de passagem e de tela, pegando informções de onde começa e termina na keyframe, linear deixa a animção constante*/
+}
+
+.mario{
+    position: absolute;
+    width: 150px;
+    bottom: 0;
+}
+
+.jump{
+    animation: jump 500ms ease-out; /*ease faz cair mais suave*/
+
+}
+
+.clouds{
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;      
+}
+
+@keyframes pipe-animation {
+
+    from/*onde começa a animação*/{
+      right: -80px; /*desloca o tubo para a direita do quadrado, caso aumento o numero de pixeis ele vai contar a distancia a partir da margem da direita*/
+    }
+
+    to/*onde termina a animação*/{
+        right: 100%;
+    }
+
+}
+
+@keyframes jump{
+
+    0% /* animação no começo*/{ 
+        bottom: 0;
+    }
+    
+    40%{
+        bottom:180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60%{
+        bottom:180px;
+    }
+
+    100%{
+        bottom: 0px;
+    }
+}
+
+@keyframes clouds-animation{
+    from{
+        right:-550px;
+    }
+
+    to {
+        right:100%;
+    }
+}
+
+
+
+
+
+
